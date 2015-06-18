@@ -103,7 +103,6 @@ EAFCErrors CAFC::OpenArchive(char const *const _pArchiveName)
 		FileHeader.dwCompressedFileSize = InFileFileHeader.dwCompressedFileSize;
 		FileHeader.dwOriginalFileSize = InFileFileHeader.dwOriginalFileSize;
 
-
 		m_ReadedFiles.emplace(InFileFileHeader.sFileName, FileHeader);
 	}
 
@@ -392,6 +391,7 @@ void CAFC::CloseArchive()
 	m_sArchiveName.clear();
 	m_ArchiveHeader.dwNumEntries = 0;
 }
+
 std::string CAFC::GetErrorString(EAFCErrors const &_Error)
 {
 	if (_Error == EAFCErrors::ENTRIES_OVERFLOW)
